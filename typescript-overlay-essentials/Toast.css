@@ -1,0 +1,13 @@
+.toast-notification {
+    font-size: 80%;
+    position: fixed;
+    top: 14rem;
+    right: 1rem;
+    background-color: var(--DunkleresGruen, #1a7f37);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    padding: 0.8rem 1.2rem 0.65rem 1.2rem;
+    border-radius: 8px;
+    animation: fadeInOut 2.5s ease-in-out;
+    z-index: 1000;
+}

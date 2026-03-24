@@ -1,0 +1,31 @@
+.custom-select {
+    border-radius: 8px;
+    border: 1px solid var(--Mittelgrau);
+    color: black;
+    background-color: white;
+    -moz-box-align: center;
+    align-items: center;
+    cursor: default;
+    display: flex;
+    flex-wrap: wrap;
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.8em;
+}
+
+.dropdown__control {
+    width: 100%;
+}
+
+    .custom-select:hover, .dropdown__menu-list div:hover, .card .dropdown__menu-list div:hover {
+        cursor: pointer;
+    }
+
+    .dropdown__multi-value__remove {
+        color:  var(--FastSchwarz, black);
+    }
+
+.custom-select .dropdown__single-value {
+    color: var(--FastSchwarz, black);
+}

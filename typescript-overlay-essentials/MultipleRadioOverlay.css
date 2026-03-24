@@ -1,0 +1,170 @@
+.multipleradio-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.multipleradio-box {
+    background-color: var(--Hellgrau, white);
+    color: var(--HellSchwarz,#2c2c2c);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+    white-space: pre-line;
+    position: relative;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.multipleradio-box .headline {
+    margin-bottom: 0.75em;
+}
+
+.multipleradio-box .information-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+    .multipleradio-box .information-buttons button {
+        font-size: 85%;
+        padding: 0.5rem 1.1rem;
+    }
+
+/* === Stylisierte Checkbox === */
+.multipleradio-box .radios-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.multipleradio-box .radios-input input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    background-color: var(--FastWeiß, white); 
+    border-color: var(--Mittelgrau, #ccc);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+    position: relative;
+    margin-right: 0.5rem;
+}
+
+    .multipleradio-box .radios-input input[type="checkbox"]:checked {
+        background-color: var(--DunkelAkzent, #4aabf5) ;
+        border-color: var(--DunkelAkzent, #4aabf5) ;
+    }
+
+        .multipleradio-box .radios-input input[type="checkbox"]:hover {
+            background-color: var(--Hellgrau, #ddd); 
+            border-color: var(--Dunkelgrau, #999);
+        }
+
+        .multipleradio-box .radios-input input[type="checkbox"]:checked:hover {
+            background-color: var(--HSDAkzent, #4aabf5) ;
+            border-color: var(--HSDAkzent, #4aabf5) ;
+        }
+
+
+        /* Häkchen aus zwei Linien */
+        .multipleradio-box .radios-input input[type="checkbox"]:checked::after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+    .multipleradio-box .radios-input input[type="checkbox"]:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px var(--MittelAkzent, rgba(74, 171, 245));
+    }
+
+.multipleradio-box .radio-label {
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    vertical-align: middle;
+}
+
+.multipleradio-box .radios-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: max-content;
+    padding: 1rem;
+}
+
+/* Light Mode */
+@media (prefers-color-scheme: dark) {
+    
+    .multipleradio-box {
+        background-color: var(--HellSchwarz,#2c2c2c);
+        color: var(--FastWeiß, white);
+    }
+
+    .multipleradio-box .radios-input input[type="checkbox"] {
+        background-color: var(--Dunkelgrau, #888);
+        background-color: var(--FastSchwarz,#222);
+    }
+
+        .multipleradio-box .radios-input input[type="checkbox"]:checked {
+            background-color: var(--DunkelAkzent, #4aabf5);
+            border-color: var(--DunkelAkzent, #4aabf5);
+        }
+
+        .multipleradio-box .radios-input input[type="checkbox"]:hover {
+            background-color: var(--Dunkelgrau, #ddd); 
+            border-color: var(--Hellgrau, #999);
+        }
+
+        .multipleradio-box .radios-input input[type="checkbox"]:checked:hover {
+            background-color: var(--HSDAkzent, #4aabf5) ;
+            border-color: var(--HSDAkzent, #4aabf5) ;
+        }
+
+            .multipleradio-box .radios-input input[type="checkbox"]:checked::after {
+                border-color: white;
+            }
+}
+
+.multipleradio-box .closeButton {
+    right: 10px;
+    top: 10px;
+    position: absolute;
+}
+
+    .multipleradio-box .close-icon:hover {
+        color: var(--HSDAkzent);
+        cursor: pointer;
+    }

@@ -1,0 +1,49 @@
+.toggleWrapper {
+    position: relative;
+    display: flex;
+    width: fit-content; 
+    height: 40px;
+    border-radius: 20px;
+    background-color: #f9eeee;;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    font-family: sans-serif;
+    font-weight: 500;
+    float: right;
+}
+
+.toggleOption {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    color: var(--FastSchwarz, black);
+    transition: color 0.2s;
+    margin: 1rem;
+    white-space: nowrap;
+}
+
+.toggleOption.active {
+    color: black;
+}
+
+.toggleSlider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    border-radius: 20px;
+    background-color: var(--HellAkzent, red);
+    transition: transform 0.25s ease;
+    z-index: 1;
+}
+
+.toggleSlider.left {
+    transform: translateX(0%);
+}
+
+.toggleSlider.right {
+    transform: translateX(100%);
+}

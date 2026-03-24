@@ -1,0 +1,65 @@
+.information-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.information-box {
+    background-color: var(--Hellgrau, white);
+    color: var(--HellSchwarz,#2c2c2c);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+    white-space: pre-line;
+    position: relative;
+}
+
+.information-box .headline {
+    margin-bottom: 0.75em;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.information-box .information-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.information-box .information-buttons button {
+    font-size: 85%;
+    padding: 0.5rem 1.1rem;
+}
+
+.information-box .closeButton {
+    right: 10px;
+    top: 10px;
+    position: absolute;
+}
+
+    .information-box .close-icon:hover {
+        color: var(--HSDAkzent);
+        cursor: pointer;
+    }
