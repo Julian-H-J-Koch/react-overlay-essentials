@@ -6,3 +6,5 @@ export { setInputFilter } from './InputFilter.jsx';
 export { LoadingOverlay } from './LoadingOverlay.jsx';
 export { MultipleChoiceOverlay } from './MultipleChoiceOverlay.jsx';
 export { MultipleRadioOverlay } from './MultipleRadioOverlay.jsx';
+export { Toast } from './Toast.jsx';
+export { ToggleSwitch } from './ToggleSwitch.jsx';
