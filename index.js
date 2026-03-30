@@ -1,8 +1,8 @@
-export { ConfirmationBox } from './ConfirmationBox.tsx';
-export { Dropdown } from './Dropdown.tsx';
-export { InfoOverlay } from './InfoOverlay.tsx';
-export { InfoOverlayWithInput } from './InfoOverlayWithInput.tsx';
-export { setInputFilter } from './InputFilter.tsx';
-export { LoadingOverlay } from './LoadingOverlay.tsx';
-export { MultipleChoiceOverlay } from './MultipleChoiceOverlay.tsx';
-export { MultipleRadioOverlay } from './MultipleRadioOverlay.tsx';
+export { ConfirmationBox } from './ConfirmationBox.jsx';
+export { Dropdown } from './Dropdown.jsx';
+export { InfoOverlay } from './InfoOverlay.jsx';
+export { InfoOverlayWithInput } from './InfoOverlayWithInput.jsx';
+export { setInputFilter } from './InputFilter.jsx';
+export { LoadingOverlay } from './LoadingOverlay.jsx';
+export { MultipleChoiceOverlay } from './MultipleChoiceOverlay.jsx';
+export { MultipleRadioOverlay } from './MultipleRadioOverlay.jsx';
