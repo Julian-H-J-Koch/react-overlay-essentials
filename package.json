@@ -21,19 +21,19 @@
     "dropdown",
     "filter"
   ],
-  "homepage": "https://github.com/Julian-H-J-Koch/npm-packages#readme",
+  "homepage": "https://github.com/Julian-H-J-Koch/react-overlay-essentials#readme",
   "bugs": {
-    "url": "https://github.com/Julian-H-J-Koch/npm-packages/issues"
+    "url": "https://github.com/Julian-H-J-Koch/react-overlay-essentials/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Julian-H-J-Koch/npm-packages.git"
+    "url": "git+https://github.com/Julian-H-J-Koch/react-overlay-essentials.git"
   },
   "license": "ISC",
   "author": "Julian Koch",
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No tests needed\""
   }
 }
