@@ -14,7 +14,7 @@ const defaultLoadingOverlayState = {
 // - color: ist dir Farbe des Loading icons (ohne Angabe HSD rot)
 // - showSuccess: zeigt bei "true" ein grünes Häkchen an und bei "false" ein rot hinterlegtes X. Bei "undefined" wird die normale Ladeanimation gezeigt.
 
-function LoadingOverlay({ state, setState }) {
+export function LoadingOverlay({ state, setState }) {
     // Wird verwendet um das LoadingOverlay ein- und auszublenden
     const [showOverlay, setShowOverlay] = useState(false);
 
@@ -46,4 +46,3 @@ function LoadingOverlay({ state, setState }) {
         </div>
     ) : null;
 }
-export default LoadingOverlay;

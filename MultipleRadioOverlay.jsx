@@ -33,7 +33,7 @@ const defaultMultipleRadioState = {
 
 // Output: Der Input vom User wird am Ende an den handlerOk übergeben (oder bei handlerCancel ignoriert)!
 // Somit wird der handler so aufgerufen: handlerOk(UserInput, handlerArgs) oder handlerCancel(handlerArgs)
-function MultipleRadioOverlay({ state, setState }) {
+export function MultipleRadioOverlay({ state, setState }) {
 
     // Wird verwendet um das Infoverlay ein- und auszublenden
     const [showOverlay, setShowOverlay] = useState(false);
@@ -137,4 +137,3 @@ function MultipleRadioOverlay({ state, setState }) {
             </div>
         </div> : null;
 }
-export default MultipleRadioOverlay;

@@ -21,7 +21,7 @@ const defaultInformationState = {
 // - addCloseButton: boolscher Wert, der angibt, ob ein x oben rechts als close-Button verfügbar sein soll (bricht die Aktion ohne handler ab, standardmäßig false)
 // - style: ist der Style der Information-Box (Standardmäßig unverändert)
 
-function InfoOverlay({ state, setState }) {
+export function InfoOverlay({ state, setState }) {
 
     // Wird verwendet um das Infoverlay ein- und auszublenden
     const [showOverlay, setShowOverlay] = useState(false);
@@ -87,4 +87,3 @@ function InfoOverlay({ state, setState }) {
             </div>
         </div> : null;
 }
-export default InfoOverlay;

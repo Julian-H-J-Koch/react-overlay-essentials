@@ -33,7 +33,7 @@ const defaultMultipleChoiceState = {
 
 // Output: Der Input vom User wird am Ende an den handlerOk übergeben (oder bei handlerCancel ignoriert)!
 // Somit wird der handler so aufgerufen: handlerOk(UserInput, handlerArgs) oder handlerCancel(handlerArgs)
-function MultipleChoiceOverlay({ state, setState }) {
+export function MultipleChoiceOverlay({ state, setState }) {
 
     // Wird verwendet um das Infoverlay ein- und auszublenden
     const [showOverlay, setShowOverlay] = useState(false);
@@ -148,4 +148,3 @@ function MultipleChoiceOverlay({ state, setState }) {
             </div>
         </div> : null;
 }
-export default MultipleChoiceOverlay;

@@ -33,7 +33,7 @@ const defaultConfirmationState = {
 // - proceedButtonStyle: ist der Style des Bestätigungsbuttons (Standardmäßig unverändert)
 // - cancelButtonStyle: ist der Style des Abbrechenbuttons (Standardmäßig unverändert)
 
-function ConfirmationBox({ state, setState }) {
+export function ConfirmationBox({ state, setState }) {
 
     // Wird verwendet um die Confirmation Boxen ein- und auszublenden
     const [showConfirm, setShowConfirm] = useState(false);
@@ -132,4 +132,3 @@ function ConfirmationBox({ state, setState }) {
             </div>
         </div> : null;
 }
-export default ConfirmationBox;
