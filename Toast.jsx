@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './Toast.css'
 
 // Zeigt einen kleinen Toast in der oberen rechten Ecke an, der nach 2,5 Sekunden wieder verschwindet
-function Toast({ state, setState }) {
+export function Toast({ state, setState }) {
     // Wird verwendet um die Toast-Notification ein-/auszublenden
     const [showToast, setShowToast] = useState(false);
     // Wird verwendet um den Inhalt der Toast-Notification zu bestimmen
@@ -29,5 +29,3 @@ function Toast({ state, setState }) {
             </div>)}
     </>
 }
-
-export default Toast;
