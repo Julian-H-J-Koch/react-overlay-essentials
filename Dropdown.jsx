@@ -53,10 +53,10 @@ export function Dropdown({selections, value, onChange, maxMenuHeight, menuPlacem
                 options = {options}
                 value={
                         (isMulti || Array.isArray(value)) ?
-                        options[0].value.id ? // Wenn die values der Optionen ids haben, handelt es sich um komplexe Objekte, die zur Auswahl stehen und müssen dahingehend verglichen werden
+                        options[0]?.value.id ? // Wenn die values der Optionen ids haben, handelt es sich um komplexe Objekte, die zur Auswahl stehen und müssen dahingehend verglichen werden
                             options.filter(opt => (opt.value.id && value.find(val => val.id === opt.value.id))) // Dann alle Optionen, die in den values per id vorkommen
                             : options.filter(opt => (value.includes(opt.value))) // Ansonsten einfach alle Optionen, die in den values vorkommen
-                        : options[0].value.id ? // Wenn die values der Optionen ids haben, handelt es sich um komplexe Objekte, die zur Auswahl stehen und müssen dahingehend verglichen werden
+                        : options[0]?.value.id ? // Wenn die values der Optionen ids haben, handelt es sich um komplexe Objekte, die zur Auswahl stehen und müssen dahingehend verglichen werden
                             options.find(opt => opt.value.id === value.id) // Die eine Option mit der passenden id finden
                             : options.find(opt => opt.value === value)} // Ohne Multi oder id nur die eine Option finden
                 onChange={(selectedOption) => Array.isArray(selectedOption) ? onChange(selectedOption.map(opt => opt.value)) : onChange(selectedOption?.value ?? undefined)}
