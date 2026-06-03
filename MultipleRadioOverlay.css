@@ -89,6 +89,12 @@
             border-color: var(--HSDAkzent, #4aabf5) ;
         }
 
+        .multipleradio-box .radios-input input[type="checkbox"]:disabled {
+            background-color: var(--Mittelgrau, #ddd); 
+            border-color: var(--Dunkelgrau, #999);
+            cursor: auto;
+        }
+
 
         /* Häkchen aus zwei Linien */
         .multipleradio-box .radios-input input[type="checkbox"]:checked::after {
@@ -156,6 +162,12 @@
             .multipleradio-box .radios-input input[type="checkbox"]:checked::after {
                 border-color: white;
             }
+
+    .multipleradio-box .radios-input input[type="checkbox"]:disabled {
+        background-color: var(--Dunkelgrau, #999); 
+        border-color: var(--Mittelgrau, #ddd);
+        cursor: auto;
+    }
 }
 
 .multipleradio-box .closeButton {
