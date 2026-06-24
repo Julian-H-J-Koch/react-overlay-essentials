@@ -111,14 +111,14 @@ export function InfoOverlayWithInput({ state, setState }) {
                         value={input}
                         onChange={handleInputChange}
                         onKeyDown={handleInputKeyDown}
-                        tabIndex="0"
+                        tabIndex={0}
                     ></input>
                 </div>
                 <div className="information-buttons">
                     <button onClick={() => handleAction(state.handlerCancel, false)}
                         className="px-4 py-2 bg-gray-300 rounded"
                         style={state?.cancelButtonStyle != null ? state.cancelButtonStyle : {}}
-                        tabIndex="0"
+                        tabIndex={0}
                         onKeyDown={(e) => {
                             if (e.key === 'Enter' || e.key === ' ') {
                                 e.preventDefault(); // Verhindert Scroll bei Space
@@ -130,7 +130,7 @@ export function InfoOverlayWithInput({ state, setState }) {
                     <button onClick={() => handleAction(state.handlerOk, true)}
                         className="px-4 py-2 bg-blue-600 text-white rounded"
                         style={state?.proceedButtonStyle != null ? state.proceedButtonStyle : {}}
-                        tabIndex = "0">
+                        tabIndex={0}>
                         {state?.proceedButtonText != null ? state.proceedButtonText : "OK"}
                     </button>
                 </div>

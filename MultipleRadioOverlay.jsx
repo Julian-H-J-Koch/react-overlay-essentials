@@ -88,8 +88,8 @@ export function MultipleRadioOverlay({ state, setState }) {
                         </svg>
                     </span> : 
                 <></>}
-                <p className="headline" id = "theHeadline" tabIndex="0" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.headline != null ? state.headline : ""}</strong></p>
-                <p tabIndex="0" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message != null ? state.message : ""}</p>
+                <p className="headline" id = "theHeadline" tabIndex={0} style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.headline != null ? state.headline : ""}</strong></p>
+                <p tabIndex={0} style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message != null ? state.message : ""}</p>
                 <div className="radios-input">
                     <div className="radios-container">
                         {state?.choices.map(choice => (
@@ -99,7 +99,7 @@ export function MultipleRadioOverlay({ state, setState }) {
                                     checked={input === choice}
                                     disabled={state.disabledChoices?.includes(choice)}
                                     onChange={() => setInput(choice)}
-                                    tabIndex="0"
+                                    tabIndex={0}
                                     onKeyDown={(e) => {
                                         if (e.key === 'Enter' || e.key === ' ') {
                                             e.preventDefault(); // Verhindert Scroll bei Space

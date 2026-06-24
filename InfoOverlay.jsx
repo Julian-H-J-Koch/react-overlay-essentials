@@ -69,8 +69,8 @@ export function InfoOverlay({ state, setState }) {
                         </svg>
                     </span> : 
                 <></>}
-                <p className="headline" tabindex="0" style={{ whiteSpace: "pre-line" }}><strong>{state?.headline != null ? state.headline : ""}</strong></p>
-                <p tabindex="0" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message != null ? state.message : ""}</p>
+                <p className="headline" tabIndex={0} style={{ whiteSpace: "pre-line" }}><strong>{state?.headline != null ? state.headline : ""}</strong></p>
+                <p tabIndex={0} style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message != null ? state.message : ""}</p>
                 <div className="information-buttons">
                     <button onClick={() => handleAction()}
                         onKeyDown={(e) => {

@@ -99,8 +99,8 @@ export function MultipleChoiceOverlay({ state, setState }) {
                         </svg>
                     </span> : 
                 <></>}
-                <p className="headline" id = "theHeadline" tabIndex="0" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.headline != null ? state.headline : ""}</strong></p>
-                <p tabIndex="0" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message != null ? state.message : ""}</p>
+                <p className="headline" id = "theHeadline" tabIndex={0} style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.headline != null ? state.headline : ""}</strong></p>
+                <p tabIndex={0} style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message != null ? state.message : ""}</p>
                 <div className="choices-input">
                     <div className="choices-container">
                         {state?.choices.map(choice => (
@@ -110,7 +110,7 @@ export function MultipleChoiceOverlay({ state, setState }) {
                                     checked={input.includes(choice)}
                                     disabled={state.disabledChoices?.includes(choice)}
                                     onChange={() => toggle(choice)}
-                                    tabIndex="0"
+                                    tabIndex={0}
                                     onKeyDown={(e) => {
                                         if (e.key === 'Enter' || e.key === ' ') {
                                             e.preventDefault(); // Verhindert Scroll bei Space
