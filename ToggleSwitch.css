@@ -21,7 +21,7 @@
     z-index: 2;
     color: var(--FastSchwarz, black);
     transition: color 0.2s;
-    margin: 1rem;
+    padding: 1rem;
     white-space: nowrap;
 }
 
