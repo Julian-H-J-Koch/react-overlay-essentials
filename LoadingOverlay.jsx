@@ -41,7 +41,7 @@ export function LoadingOverlay({ state, setState }) {
                         "--error-bg": state.color ?? "#e60028",
                     }}
                 ></div>
-                {state.message && <p className="loading-message">{state.message}</p>}
+                {state.message && <div className="loading-message">{state.message}</div>}
             </div>
         </div>
     ) : null;

@@ -98,8 +98,8 @@ export function InfoOverlayWithInput({ state, setState }) {
                         </svg>
                     </span> : 
                 <></>}
-                <p className="headline" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.headline != null ? state.headline : ""}</strong></p>
-                <p style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message != null ? state.message : ""}</p>
+                <div className="headline" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.headline != null ? state.headline : ""}</strong></div>
+                <div style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message != null ? state.message : ""}</div>
                 <div className="information-input">
                     <input
                         id="information-inputfield"

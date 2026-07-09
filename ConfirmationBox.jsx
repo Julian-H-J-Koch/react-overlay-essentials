@@ -105,9 +105,9 @@ export function ConfirmationBox({ state, setState }) {
                         </svg>
                     </span> : 
                 <></>}
-                {state?.headline != null ? <p className="headline" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.headline}</strong></p> : <></>}
-                <p style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message1 != null ? state.message1 : state?.message != null ? state.message : ""}</p>
-                <p style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.message2 != null ? state.message2 : ""}</strong></p>
+                {state?.headline != null ? <div className="headline" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.headline}</strong></div> : <></>}
+                <div style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message1 != null ? state.message1 : state?.message != null ? state.message : ""}</div>
+                <div style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.message2 != null ? state.message2 : ""}</strong></div>
                 <div className="confirmation-buttons">
                     <button
                         onClick={() => handleAction(state.handlerCancel)}
