@@ -17,6 +17,7 @@ const defaultMultipleChoiceState = {
     addCloseButton: false,
     proceedButtonStyle: null,
     cancelButtonStyle: null,
+    style: null,
 };
 // Wobei alle Attribute grundsätzlich optional sind:
 // - headline: ist die Überschrift und wird fett hinterlegt
@@ -32,6 +33,7 @@ const defaultMultipleChoiceState = {
 // - addCloseButton: boolscher Wert, der angibt, ob ein x oben rechts als close-Button verfügbar sein soll (bricht die Aktion ohne handler ab, standardmäßig false)
 // - proceedButtonStyle: ist der Style des Bestätigungsbuttons (Standardmäßig unverändert)
 // - cancelButtonStyle: ist der Style des Abbrechenbuttons (Standardmäßig unverändert)
+// - style: ist der Style des MultipleChoiceOverlay (Standardmäßig unverändert)
 
 // Output: Der Input vom User wird am Ende an den handlerOk übergeben (oder bei handlerCancel ignoriert)!
 // Somit wird der handler so aufgerufen: handlerOk(UserInput, handlerArgs) oder handlerCancel(handlerArgs)
@@ -79,7 +81,7 @@ export function MultipleChoiceOverlay({ state, setState }) {
 
     return showOverlay ?
         <div className="multiplechoice-overlay">
-            <div className="multiplechoice-box">
+            <div className="multiplechoice-box" style={state?.style != null ? state.style : {}}>
                 {state.addCloseButton?
                     <span className="closeButton">
                         <svg xmlns="http://www.w3.org/2000/svg"

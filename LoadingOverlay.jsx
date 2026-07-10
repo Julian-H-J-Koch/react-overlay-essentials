@@ -7,12 +7,14 @@ const defaultLoadingOverlayState = {
     message: null,
     color: null,
     showSuccess: undefined,
+    style: null,
 };
 // Wobei alle Attribute grundsätzlich optional sind:
 // - isActive: gibt an ob das Overlay gerade aktiv sein soll oder nicht
 // - message: ist die angezeigte Nachricht
 // - color: ist dir Farbe des Loading icons (ohne Angabe HSD rot)
 // - showSuccess: zeigt bei "true" ein grünes Häkchen an und bei "false" ein rot hinterlegtes X. Bei "undefined" wird die normale Ladeanimation gezeigt.
+// - style: ist der Style des LoadingOverlay (Standardmäßig unverändert)
 
 export function LoadingOverlay({ state, setState }) {
     // Wird verwendet um das LoadingOverlay ein- und auszublenden
@@ -32,7 +34,7 @@ export function LoadingOverlay({ state, setState }) {
 
     return showOverlay ? (
         <div className="loading-overlay">
-            <div className="loading-box">
+            <div className="loading-box" style={state?.style != null ? state.style : {}}>
                 <div
                     className={"spinner " + (state.showSuccess === undefined ? "is-loading" : (state.showSuccess ? "is-success" : "is-error"))}
                     style={{

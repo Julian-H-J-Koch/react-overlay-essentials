@@ -16,6 +16,7 @@ const defaultConfirmationState = {
     activateConfirm: null,
     confirmationButtonColor: null,
     cancelButtonColor: null,
+    style: null,
 };
 
 // Wobei alle Attribute grundsätzlich optional sind:
@@ -32,6 +33,7 @@ const defaultConfirmationState = {
 // - activateConfirm: ist ein Boolean, der angibt ob die ConfirmationBox angezeigt werden soll oder nicht (wenn false, wird direkt handlerOk aufgerufen) (Standardmäßig true wenn nicht anders angegeben)
 // - proceedButtonStyle: ist der Style des Bestätigungsbuttons (Standardmäßig unverändert)
 // - cancelButtonStyle: ist der Style des Abbrechenbuttons (Standardmäßig unverändert)
+// - style: ist der Style der Confirmation-Box (Standardmäßig unverändert)
 
 export function ConfirmationBox({ state, setState }) {
 
@@ -85,7 +87,7 @@ export function ConfirmationBox({ state, setState }) {
         <div className="confirmation-overlay"
             tabIndex={0}
             ref={overlayRef}>
-            <div className="confirmation-box">
+            <div className="confirmation-box" style={state?.style != null ? state.style : {}}>
                 {state.addCloseButton?
                     <span className="closeButton">
                         <svg xmlns="http://www.w3.org/2000/svg"
