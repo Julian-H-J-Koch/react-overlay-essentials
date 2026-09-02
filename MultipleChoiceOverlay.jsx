@@ -51,7 +51,6 @@ export function MultipleChoiceOverlay({ state, setState }) {
         if (state?.message != null || state?.headline != null) {
             setInput(state?.preInput != null ? state.preInput : []);
             setShowOverlay(true);
-            setTimeout(() => { document.getElementById("confirmButton").focus(); }, 1);
         }
     }, [state]);
 
@@ -81,7 +80,11 @@ export function MultipleChoiceOverlay({ state, setState }) {
 
     return showOverlay ?
         <div className="multiplechoice-overlay">
-            <div className="multiplechoice-box" style={state?.style != null ? state.style : {}}>
+            <div className="multiplechoice-box" style={state?.style != null ? state.style : {}} role="dialog" aria-modal="true"
+                aria-labelledby={state?.headline != null ? "multiple-choice-headline" : undefined}
+                aria-label={state?.headline != null ? undefined : "Mehrfachauswahl"}
+                aria-describedby="multiple-choice-message"
+                onKeyDown={(event) => { if (event.key === "Escape") handleAction(state.handlerCancel, false); }}>
                 {state.addCloseButton?
                     <span className="closeButton">
                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -101,9 +104,9 @@ export function MultipleChoiceOverlay({ state, setState }) {
                         </svg>
                     </span> : 
                 <></>}
-                <div className="headline" id = "theHeadline" tabIndex={0} style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.headline != null ? state.headline : ""}</strong></div>
-                <div tabIndex={0} style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message != null ? state.message : ""}</div>
-                <div className="choices-input">
+                <div className="headline" id="multiple-choice-headline" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.headline != null ? state.headline : ""}</strong></div>
+                <div id="multiple-choice-message" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message != null ? state.message : ""}</div>
+                <div className="choices-input" role="group" aria-label="Auswahloptionen">
                     <div className="choices-container">
                         {state?.choices.map(choice => (
                             <label className="choice-label" key={choice}>
@@ -138,7 +141,8 @@ export function MultipleChoiceOverlay({ state, setState }) {
                         {state?.cancelButtonText != null ? state.cancelButtonText : "Abbrechen"}
                     </button>
                     <button onClick={() => handleAction(state.handlerOk, true)}
-                        id="confirmButton"
+                        type="button"
+                        autoFocus
                         onKeyDown={(event) => {
                             if (event.key === "Enter" || event.key === ' ') {
                                 event.preventDefault(); // Verhindert Scroll bei Space

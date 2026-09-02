@@ -49,7 +49,6 @@ export function InfoOverlayWithInput({ state, setState }) {
         if (state?.message != null || state?.headline != null) {
             setInput(state?.preInput != null ? state.preInput : "");
             setShowOverlay(true);
-            setTimeout(() => { document.getElementById("information-inputfield").focus(); }, 1);
         }
     }, [state]);
 
@@ -80,7 +79,11 @@ export function InfoOverlayWithInput({ state, setState }) {
 
     return showOverlay ?
         <div className="information-overlay-with-input">
-            <div className="information-box-with-input" style={state?.style != null ? state.style : {}}>
+            <div className="information-box-with-input" style={state?.style != null ? state.style : {}} role="dialog" aria-modal="true"
+                aria-labelledby={state?.headline != null ? "information-input-headline" : undefined}
+                aria-label={state?.headline != null ? undefined : "Information"}
+                aria-describedby="information-input-message"
+                onKeyDown={(event) => { if (event.key === "Escape") handleAction(state.handlerCancel, false); }}>
                 {state.addCloseButton?
                     <span className="closeButton">
                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -100,11 +103,13 @@ export function InfoOverlayWithInput({ state, setState }) {
                         </svg>
                     </span> : 
                 <></>}
-                <div className="headline" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.headline != null ? state.headline : ""}</strong></div>
-                <div style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message != null ? state.message : ""}</div>
+                <div className="headline" id="information-input-headline" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.headline != null ? state.headline : ""}</strong></div>
+                <div id="information-input-message" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message != null ? state.message : ""}</div>
                 <div className="information-input">
                     <input
                         id="information-inputfield"
+                        aria-label={state?.placeholder != null ? state.placeholder : "Eingabe"}
+                        autoFocus
                         placeholder={state?.placeholder != null ? state.placeholder : ""}
                         pattern="^[A-Za-z0-9_-~]+$"
                         required={true}
@@ -113,7 +118,6 @@ export function InfoOverlayWithInput({ state, setState }) {
                         value={input}
                         onChange={handleInputChange}
                         onKeyDown={handleInputKeyDown}
-                        tabIndex={0}
                     ></input>
                 </div>
                 <div className="information-buttons">

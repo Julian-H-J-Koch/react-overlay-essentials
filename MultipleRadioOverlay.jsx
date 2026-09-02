@@ -51,7 +51,6 @@ export function MultipleRadioOverlay({ state, setState }) {
         if (state?.message != null || state?.headline != null) {
             setInput(state?.preInput != null ? state.preInput : "");
             setShowOverlay(true);
-            setTimeout(() => { document.getElementById("confirmButton").focus(); }, 1);
         }
     }, [state]);
 
@@ -70,7 +69,11 @@ export function MultipleRadioOverlay({ state, setState }) {
 
     return showOverlay ?
         <div className="multipleradio-overlay">
-            <div className="multipleradio-box" style={state?.style != null ? state.style : {}}>
+            <div className="multipleradio-box" style={state?.style != null ? state.style : {}} role="dialog" aria-modal="true"
+                aria-labelledby={state?.headline != null ? "multiple-radio-headline" : undefined}
+                aria-label={state?.headline != null ? undefined : "Einfachauswahl"}
+                aria-describedby="multiple-radio-message"
+                onKeyDown={(event) => { if (event.key === "Escape") handleAction(state.handlerCancel, false); }}>
                 {state.addCloseButton?
                     <span className="closeButton">
                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -90,14 +93,15 @@ export function MultipleRadioOverlay({ state, setState }) {
                         </svg>
                     </span> : 
                 <></>}
-                <div className="headline" id = "theHeadline" tabIndex={0} style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.headline != null ? state.headline : ""}</strong></div>
-                <div tabIndex={0} style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message != null ? state.message : ""}</div>
-                <div className="radios-input">
+                <div className="headline" id="multiple-radio-headline" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.headline != null ? state.headline : ""}</strong></div>
+                <div id="multiple-radio-message" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message != null ? state.message : ""}</div>
+                <div className="radios-input" role="radiogroup" aria-label="Auswahloptionen">
                     <div className="radios-container">
                         {state?.choices.map(choice => (
                             <label className="radio-label" key={choice}>
                                 <input
                                     type="radio"
+                                    name="multiple-radio-options"
                                     checked={input === choice}
                                     disabled={state.disabledChoices?.includes(choice)}
                                     onChange={() => setInput(choice)}
@@ -127,7 +131,8 @@ export function MultipleRadioOverlay({ state, setState }) {
                         {state?.cancelButtonText != null ? state.cancelButtonText : "Abbrechen"}
                     </button>
                     <button onClick={() => handleAction(state.handlerOk, true)}
-                        id="confirmButton"
+                        type="button"
+                        autoFocus
                         onKeyDown={(event) => {
                             if (event.key === "Enter" || event.key === ' ') {
                                 event.preventDefault(); // Verhindert Scroll bei Space

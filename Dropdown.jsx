@@ -49,6 +49,7 @@ export function Dropdown({selections, value, onChange, maxMenuHeight, menuPlacem
         return (
             <Select
                 className = "custom-select" 
+                aria-label={placeHolder ?? "Auswahl"}
                 placeholder = {placeHolder ?? ""}
                 options = {options}
                 value={
