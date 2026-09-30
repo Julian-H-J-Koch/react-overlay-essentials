@@ -97,8 +97,8 @@ export function MultipleRadioOverlay({ state, setState }) {
                 <div id="multiple-radio-message" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message != null ? state.message : ""}</div>
                 <div className="radios-input" role="radiogroup" aria-label="Auswahloptionen">
                     <div className="radios-container">
-                        {state?.choices.map(choice => (
-                            <label className="radio-label" key={choice}>
+                        {state?.choices.map((choice, index) => (
+                            <label className="radio-label" key={index}>
                                 <input
                                     type="radio"
                                     name="multiple-radio-options"

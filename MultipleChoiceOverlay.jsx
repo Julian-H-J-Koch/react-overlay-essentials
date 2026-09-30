@@ -108,8 +108,8 @@ export function MultipleChoiceOverlay({ state, setState }) {
                 <div id="multiple-choice-message" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message != null ? state.message : ""}</div>
                 <div className="choices-input" role="group" aria-label="Auswahloptionen">
                     <div className="choices-container">
-                        {state?.choices.map(choice => (
-                            <label className="choice-label" key={choice}>
+                        {state?.choices.map((choice, index) => (
+                            <label className="choice-label" key={index}>
                                 <input
                                     type="checkbox"
                                     checked={input.includes(choice)}
