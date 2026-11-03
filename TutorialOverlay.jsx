@@ -142,7 +142,7 @@ export function TutorialOverlay({ state, setState }) {
     return showTutorial ?
         <div className={"overlay-essentials-tutorial-overlay" + (highlightElementRect === null ? " overlay-essentials-darken" : "")}>
             <div
-                className="overlay-essentials-overlay-essentials-tutorial-highlight-hole"
+                className="overlay-essentials-tutorial-highlight-hole"
                 style={highlightElementRect === null
                     ? {
                         display: "none"
@@ -153,7 +153,7 @@ export function TutorialOverlay({ state, setState }) {
                         height: `${highlightElementRect?.height ?? 0}px`,
                     }}
             />
-            <div className="overlay-essentials-overlay-essentials-tutorial-box" style={{
+            <div className="overlay-essentials-tutorial-box" style={{
                     ...(tutorialPos
                             ? {
                                 position: "fixed",
@@ -176,8 +176,8 @@ export function TutorialOverlay({ state, setState }) {
                         setState(prev => ({...prev, currentCommand: nextCommand}));
                     }
                 }}>
-                <div id="overlay-essentials-overlay-essentials-tutorial-headline" className="overlay-essentials-overlay-essentials-tutorial-headline"><strong>{state?.steps[tutorialStep]?.headline ?? ""} {tutorialStep + 1}/{state.steps.length}</strong></div>
-                <div id="overlay-essentials-overlay-essentials-tutorial-message" className="overlay-essentials-overlay-essentials-tutorial-message">{state?.steps[tutorialStep]?.message ?? ""}</div>
+                <div id="overlay-essentials-tutorial-headline" className="overlay-essentials-tutorial-headline"><strong>{state?.steps[tutorialStep]?.headline ?? ""} {tutorialStep + 1}/{state.steps.length}</strong></div>
+                <div id="overlay-essentials-tutorial-message" className="overlay-essentials-tutorial-message">{state?.steps[tutorialStep]?.message ?? ""}</div>
                 <div className="overlay-essentials-tutorial-buttons">
                     <button
                         onClick={() => {
