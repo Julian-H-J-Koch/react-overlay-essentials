@@ -9,6 +9,13 @@
     word-break: break-word;
 }
 
+.overlay-essentials-tutorial-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
 .overlay-essentials-tutorial-overlay {
     position: fixed;
     top: 0;
