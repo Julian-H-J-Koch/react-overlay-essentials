@@ -8,3 +8,4 @@ export { MultipleChoiceOverlay } from './MultipleChoiceOverlay.jsx';
 export { MultipleRadioOverlay } from './MultipleRadioOverlay.jsx';
 export { Toast } from './Toast.jsx';
 export { ToggleSwitch } from './ToggleSwitch.jsx';
+export { TutorialOverlay } from './TutorialOverlay.jsx';
