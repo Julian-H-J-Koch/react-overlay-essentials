@@ -1,4 +1,4 @@
-.multipleradio-overlay {
+.overlay-essentials-multipleradio-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,9 +9,11 @@
     align-items: center;
     justify-content: center;
     z-index: 10000;
+    white-space: pre-line;
+    word-break: break-word;
 }
 
-.multipleradio-box {
+.overlay-essentials-multipleradio-box {
     background-color: var(--Hellgrau, white);
     color: var(--HellSchwarz,#2c2c2c);
     padding: 2rem;
@@ -37,30 +39,30 @@
     }
 }
 
-.multipleradio-box .headline {
+.overlay-essentials-multipleradio-box .overlay-essentials-headline {
     margin-bottom: 0.75em;
 }
 
-.multipleradio-box .information-buttons {
+.overlay-essentials-multipleradio-box .overlay-essentials-information-buttons {
     display: flex;
     justify-content: center;
     gap: 1rem;
     margin-top: 1.5rem;
 }
 
-    .multipleradio-box .information-buttons button {
+    .overlay-essentials-multipleradio-box .overlay-essentials-information-buttons button {
         font-size: 85%;
         padding: 0.5rem 1.1rem;
     }
 
 /* === Stylisierte Checkbox === */
-.multipleradio-box .radios-input {
+.overlay-essentials-multipleradio-box .overlay-essentials-radios-input {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.multipleradio-box .radios-input input[type="checkbox"] {
+.overlay-essentials-multipleradio-box .overlay-essentials-radios-input input[type="checkbox"] {
     appearance: none;
     width: 20px;
     height: 20px;
@@ -74,30 +76,29 @@
     margin-right: 0.5rem;
 }
 
-    .multipleradio-box .radios-input input[type="checkbox"]:checked {
+    .overlay-essentials-multipleradio-box .overlay-essentials-radios-input input[type="checkbox"]:checked {
         background-color: var(--DunkelAkzent, #4aabf5) ;
         border-color: var(--DunkelAkzent, #4aabf5) ;
     }
 
-        .multipleradio-box .radios-input input[type="checkbox"]:hover {
+        .overlay-essentials-multipleradio-box .overlay-essentials-radios-input input[type="checkbox"]:hover {
             background-color: var(--Hellgrau, #ddd); 
             border-color: var(--Dunkelgrau, #999);
         }
 
-        .multipleradio-box .radios-input input[type="checkbox"]:checked:hover {
+        .overlay-essentials-multipleradio-box .overlay-essentials-radios-input input[type="checkbox"]:checked:hover {
             background-color: var(--HSDAkzent, #4aabf5) ;
             border-color: var(--HSDAkzent, #4aabf5) ;
         }
 
-        .multipleradio-box .radios-input input[type="checkbox"]:disabled {
+        .overlay-essentials-multipleradio-box .overlay-essentials-radios-input input[type="checkbox"]:disabled {
             background-color: var(--Mittelgrau, #ddd); 
             border-color: var(--Dunkelgrau, #999);
             cursor: auto;
         }
 
-
         /* Häkchen aus zwei Linien */
-        .multipleradio-box .radios-input input[type="checkbox"]:checked::after {
+        .overlay-essentials-multipleradio-box .overlay-essentials-radios-input input[type="checkbox"]:checked::after {
             content: "";
             position: absolute;
             left: 5px;
@@ -109,12 +110,12 @@
             transform: rotate(45deg);
         }
 
-    .multipleradio-box .radios-input input[type="checkbox"]:focus {
+    .overlay-essentials-multipleradio-box .overlay-essentials-radios-input input[type="checkbox"]:focus {
         outline: none;
         box-shadow: 0 0 0 2px var(--MittelAkzent, rgba(74, 171, 245));
     }
 
-.multipleradio-box .radio-label {
+.overlay-essentials-multipleradio-box .overlay-essentials-radio-label {
     justify-content: flex-start;
     display: flex;
     align-items: center;
@@ -122,7 +123,7 @@
     vertical-align: middle;
 }
 
-.multipleradio-box .radios-container{
+.overlay-essentials-multipleradio-box .overlay-essentials-radios-container{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -131,52 +132,52 @@
     padding: 1rem;
 }
 
-/* ==== Dark Mode Support ==== */
-@media (prefers-color-scheme: dark) {
+/* Light Mode */
+[visual-theme="dark"] {
     
-    .multipleradio-box {
+    .overlay-essentials-multipleradio-box {
         background-color: var(--HellSchwarz,#2c2c2c);
         color: var(--FastWeiß, white);
     }
 
-    .multipleradio-box .radios-input input[type="checkbox"] {
+    .overlay-essentials-multipleradio-box .overlay-essentials-radios-input input[type="checkbox"] {
         background-color: var(--Dunkelgrau, #888);
         background-color: var(--FastSchwarz,#222);
     }
 
-        .multipleradio-box .radios-input input[type="checkbox"]:checked {
+        .overlay-essentials-multipleradio-box .overlay-essentials-radios-input input[type="checkbox"]:checked {
             background-color: var(--DunkelAkzent, #4aabf5);
             border-color: var(--DunkelAkzent, #4aabf5);
         }
 
-        .multipleradio-box .radios-input input[type="checkbox"]:hover {
+        .overlay-essentials-multipleradio-box .overlay-essentials-radios-input input[type="checkbox"]:hover {
             background-color: var(--Dunkelgrau, #ddd); 
             border-color: var(--Hellgrau, #999);
         }
 
-        .multipleradio-box .radios-input input[type="checkbox"]:checked:hover {
+        .overlay-essentials-multipleradio-box .overlay-essentials-radios-input input[type="checkbox"]:checked:hover {
             background-color: var(--HSDAkzent, #4aabf5) ;
             border-color: var(--HSDAkzent, #4aabf5) ;
         }
 
-            .multipleradio-box .radios-input input[type="checkbox"]:checked::after {
+            .overlay-essentials-multipleradio-box .overlay-essentials-radios-input input[type="checkbox"]:checked::after {
                 border-color: white;
             }
 
-    .multipleradio-box .radios-input input[type="checkbox"]:disabled {
-        background-color: var(--Dunkelgrau, #999); 
-        border-color: var(--Mittelgrau, #ddd);
+    .overlay-essentials-multipleradio-box .overlay-essentials-radios-input input[type="checkbox"]:disabled {
+        background-color: var(--Dunkelgrau, #999);
+        border-color: var(--Mittelgrau, #ddd); 
         cursor: auto;
     }
 }
 
-.multipleradio-box .closeButton {
+.overlay-essentials-multipleradio-box .overlay-essentials-closeButton {
     right: 10px;
     top: 10px;
     position: absolute;
 }
 
-    .multipleradio-box .close-icon:hover {
+    .overlay-essentials-multipleradio-box .overlay-essentials-close-icon:hover {
         color: var(--HSDAkzent);
         cursor: pointer;
     }

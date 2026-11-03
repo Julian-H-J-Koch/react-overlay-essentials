@@ -26,29 +26,34 @@ export function Dropdown({selections, value, onChange, maxMenuHeight, menuPlacem
         const options = selections.map(({value, label, disabled, indent}) => ({value: value, label: label, isDisabled: disabled ?? false, indent}));
         
         function usePrefersDarkMode() {
-        const [isDarkMode, setIsDarkMode] = useState(
-            window.matchMedia('(prefers-color-scheme: dark)').matches
-        );
 
-        useEffect(() => {
-            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-            const handler = (event) => setIsDarkMode(event.matches);
-            
-            // EventListener hinzufügen
-            mediaQuery.addEventListener('change', handler);
+            const [isDarkMode, setIsDarkMode] = useState(document.documentElement.getAttribute('visual-theme') === "dark");
 
-            // Aufräumen
-            return () => mediaQuery.removeEventListener('change', handler);
-        }, []);
+            useEffect(() => {
+                // Handler, der ausgeführt wird, wenn sich das Attribut ändert
+                const checkTheme = () => {
+                    const isDark = document.documentElement.getAttribute('visual-theme') === 'dark';
+                    setIsDarkMode(isDark);
+                };
 
-        return isDarkMode;
+                // Oberserver an den Handler koppeln (hört auf Änderungen an dem Attribut, falls sich das visual-theme ändert)
+                const observer = new MutationObserver(checkTheme);
+                observer.observe(document.documentElement, {
+                    attributes: true,
+                    attributeFilter: ['visual-theme'] // Nur auf das Attribut reagieren
+                });
+
+                return () => observer.disconnect();
+            }, []);
+
+            return isDarkMode;
         }
         const isDarkModeRaw = usePrefersDarkMode()
         const isDarkMode = ignoreDarkMode ? false : isDarkModeRaw;
 
         return (
             <Select
-                className = "custom-select" 
+                className="overlay-essentials-custom-select" 
                 aria-label={placeHolder ?? "Auswahl"}
                 placeholder = {placeHolder ?? ""}
                 options = {options}

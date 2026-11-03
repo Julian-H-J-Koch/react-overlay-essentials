@@ -78,17 +78,17 @@ export function InfoOverlayWithInput({ state, setState }) {
     }
 
     return showOverlay ?
-        <div className="information-overlay-with-input">
-            <div className="information-box-with-input" style={state?.style != null ? state.style : {}} role="dialog" aria-modal="true"
+        <div className="overlay-essentials-information-overlay-with-input">
+            <div className="overlay-essentials-information-box-with-input" style={state?.style != null ? state.style : {}} role="dialog" aria-modal="true"
                 aria-labelledby={state?.headline != null ? "information-input-headline" : undefined}
                 aria-label={state?.headline != null ? undefined : "Information"}
                 aria-describedby="information-input-message"
                 onKeyDown={(event) => { if (event.key === "Escape") handleAction(state.handlerCancel, false); }}>
                 {state.addCloseButton?
-                    <span className="closeButton">
+                    <span className="overlay-essentials-closeButton">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             tabIndex={0}
-                            className="close-icon"
+                            className="overlay-essentials-close-icon"
                             onClick={() => handleAction(undefined)}
                             onKeyDown={(e) => {
                                 if (e.key === 'Enter' || e.key === ' ') {
@@ -103,26 +103,26 @@ export function InfoOverlayWithInput({ state, setState }) {
                         </svg>
                     </span> : 
                 <></>}
-                <div className="headline" id="information-input-headline" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.headline != null ? state.headline : ""}</strong></div>
-                <div id="information-input-message" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message != null ? state.message : ""}</div>
-                <div className="information-input">
+                <div className="overlay-essentials-headline" id="overlay-essentials-information-input-headline"><strong>{state?.headline != null ? state.headline : ""}</strong></div>
+                <div id="overlay-essentials-information-input-message">{state?.message != null ? state.message : ""}</div>
+                <div className="overlay-essentials-information-input">
                     <input
-                        id="information-inputfield"
+                        id="overlay-essentials-information-inputfield"
                         aria-label={state?.placeholder != null ? state.placeholder : "Eingabe"}
                         autoFocus
                         placeholder={state?.placeholder != null ? state.placeholder : ""}
                         pattern="^[A-Za-z0-9_-~]+$"
                         required={true}
                         type="text"
-                        className="form-control"
+                        className="overlay-essentials-form-control"
                         value={input}
                         onChange={handleInputChange}
                         onKeyDown={handleInputKeyDown}
                     ></input>
                 </div>
-                <div className="information-buttons">
+                <div className="overlay-essentials-information-buttons">
                     <button onClick={() => handleAction(state.handlerCancel, false)}
-                        className="px-4 py-2 bg-gray-300 rounded"
+                        className="overlay-essentials-px-4 py-2 bg-gray-300 rounded"
                         style={state?.cancelButtonStyle != null ? state.cancelButtonStyle : {}}
                         tabIndex={0}
                         onKeyDown={(e) => {
@@ -134,7 +134,7 @@ export function InfoOverlayWithInput({ state, setState }) {
                         {state?.cancelButtonText != null ? state.cancelButtonText : "Abbrechen"}
                     </button>
                     <button onClick={() => handleAction(state.handlerOk, true)}
-                        className="px-4 py-2 bg-blue-600 text-white rounded"
+                        className="overlay-essentials-px-4 py-2 bg-blue-600 text-white rounded"
                         style={state?.proceedButtonStyle != null ? state.proceedButtonStyle : {}}
                         tabIndex={0}>
                         {state?.proceedButtonText != null ? state.proceedButtonText : "OK"}

@@ -33,17 +33,17 @@ export function LoadingOverlay({ state, setState }) {
     }, [state, setState]);
 
     return showOverlay ? (
-        <div className="loading-overlay" role="status" aria-live="polite" aria-atomic="true" aria-busy={state?.isActive ?? false}>
-            <div className="loading-box" style={state?.style != null ? state.style : {}}>
+        <div className="overlay-essentials-loading-overlay" role="status" aria-live="polite" aria-atomic="true" aria-busy={state?.isActive ?? false}>
+            <div className="overlay-essentials-loading-box" style={state?.style != null ? state.style : {}}>
                 <div
-                    className={"spinner " + (state.showSuccess === undefined ? "is-loading" : (state.showSuccess ? "is-success" : "is-error"))}
+                    className={"overlay-essentials-spinner " + (state.showSuccess === undefined ? "overlay-essentials-is-loading" : (state.showSuccess ? "overlay-essentials-is-success" : "overlay-essentials-is-error"))}
                     style={{
                         "--spinner-color": state.color ?? "#e60028",
                         "--success-bg": state.color ?? "#42ab34",
                         "--error-bg": state.color ?? "#e60028",
                     }}
                     aria-hidden="true"></div>
-                {state.message && <div className="loading-message">{state.message}</div>}
+                {state.message && <div className="overlay-essentials-loading-message">{state.message}</div>}
             </div>
         </div>
     ) : null;

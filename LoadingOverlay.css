@@ -1,4 +1,4 @@
-.loading-overlay {
+.overlay-essentials-loading-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -12,7 +12,7 @@
     backdrop-filter: blur(2px);
 }
 
-.loading-box {
+.overlay-essentials-loading-box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,7 +20,7 @@
 }
 
 /* Spinner (Standardfarbe für Dark Mode) */
-.loading-box .spinner {
+.overlay-essentials-loading-box .overlay-essentials-spinner {
     width: 60px;
     height: 60px;
     /*border: 8px solid var(--HellSchwarz, #555);*/
@@ -35,25 +35,25 @@
         transform 0.3s ease;
 }
 
-.loading-box .spinner.is-success,
-.loading-box .spinner.is-error {
+.overlay-essentials-loading-box .overlay-essentials-spinner.overlay-essentials-is-success,
+.overlay-essentials-loading-box .overlay-essentials-spinner.overlay-essentials-is-error {
     animation: none;
     border-color: transparent;
 }
 
-.loading-box .spinner::before,
-.loading-box .spinner::after {
+.overlay-essentials-loading-box .overlay-essentials-spinner::before,
+.overlay-essentials-loading-box .overlay-essentials-spinner::after {
     content: "";
     position: absolute;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-.loading-box .spinner.is-success {
+.overlay-essentials-loading-box .overlay-essentials-spinner.overlay-essentials-is-success {
     background-color: var(--success-bg, #4caf50);
 }
 
-.loading-box .spinner.is-success::before {
+.overlay-essentials-loading-box .overlay-essentials-spinner.overlay-essentials-is-success::before {
     width: 12px;
     height: 24px;
     border-right: 6px solid white;
@@ -64,12 +64,12 @@
     opacity: 1;
 }
 
-.loading-box .spinner.is-error {
+.overlay-essentials-loading-box .overlay-essentials-spinner.overlay-essentials-is-error {
     background-color: var(--error-bg, #e60028);
 }
 
-.loading-box .spinner.is-error::before,
-.loading-box .spinner.is-error::after {
+.overlay-essentials-loading-box .overlay-essentials-spinner.overlay-essentials-is-error::before,
+.overlay-essentials-loading-box .overlay-essentials-spinner.overlay-essentials-is-error::after {
     width: 36px;
     height: 6px;
     background: white;
@@ -78,15 +78,15 @@
     opacity: 1;
 }
 
-.loading-box .spinner.is-error::before {
+.overlay-essentials-loading-box .overlay-essentials-spinner.overlay-essentials-is-error::before {
     transform: rotate(45deg);
 }
 
-.loading-box .spinner.is-error::after {
+.overlay-essentials-loading-box .overlay-essentials-spinner.overlay-essentials-is-error::after {
     transform: rotate(-45deg);
 }
 
-.loading-box .loading-message {
+.overlay-essentials-loading-box .overlay-essentials-loading-message {
     font-size: 1.1em;
     font-weight: bold;
     text-align: center;

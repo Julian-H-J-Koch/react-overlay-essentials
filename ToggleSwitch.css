@@ -1,4 +1,4 @@
-.toggleWrapper {
+.overlay-essentials-toggleWrapper {
     position: relative;
     display: flex;
     width: fit-content; 
@@ -13,7 +13,7 @@
     float: right;
 }
 
-.toggleOption {
+.overlay-essentials-toggleOption {
     border: 0;
     background: transparent;
     font: inherit;
@@ -28,16 +28,16 @@
     white-space: nowrap;
 }
 
-.toggleOption:focus-visible {
+.overlay-essentials-toggleOption:focus-visible {
     outline: 3px solid var(--DunkelAkzent, #8b0000);
     outline-offset: -3px;
 }
 
-.toggleOption.active {
+.overlay-essentials-toggleOption.overlay-essentials-active {
     color: black;
 }
 
-.toggleSlider {
+.overlay-essentials-toggleSlider {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -48,10 +48,10 @@
     z-index: 1;
 }
 
-.toggleSlider.left {
+.overlay-essentials-toggleSlider.overlay-essentials-left {
     transform: translateX(0%);
 }
 
-.toggleSlider.right {
+.overlay-essentials-toggleSlider.overlay-essentials-right {
     transform: translateX(100%);
 }

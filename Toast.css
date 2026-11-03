@@ -1,7 +1,7 @@
-.toast-notification {
+.overlay-essentials-toast-notification {
     font-size: 80%;
     position: fixed;
-    top: 1rem;
+    top: 14rem;
     right: 1rem;
     background-color: var(--DunkleresGruen, #1a7f37);
     color: white;

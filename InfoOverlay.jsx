@@ -46,17 +46,17 @@ export function InfoOverlay({ state, setState }) {
     }
 
     return showOverlay ?
-        <div className="information-overlay">
-            <div className="information-box" style={state?.style != null ? state.style : {}} role="dialog" aria-modal="true"
+        <div className="overlay-essentials-information-overlay">
+            <div className="overlay-essentials-information-box" style={state?.style != null ? state.style : {}} role="dialog" aria-modal="true"
                 aria-labelledby={state?.headline != null ? "information-headline" : undefined}
                 aria-label={state?.headline != null ? undefined : "Information"}
                 aria-describedby="information-message"
                 onKeyDown={(event) => { if (event.key === "Escape") handleAction(); }}>
                 {state.addCloseButton?
-                    <span className="closeButton">
+                    <span className="overlay-essentials-closeButton">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             tabIndex={0}
-                            className="close-icon"
+                            className="overlay-essentials-close-icon"
                             onClick={() => setShowOverlay(false)}
                             onKeyDown={(e) => {
                                 if (e.key === 'Enter' || e.key === ' ') {
@@ -71,9 +71,9 @@ export function InfoOverlay({ state, setState }) {
                         </svg>
                     </span> : 
                 <></>}
-                <div className="headline" id="information-headline" style={{ whiteSpace: "pre-line" }}><strong>{state?.headline != null ? state.headline : ""}</strong></div>
-                <div id="information-message" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message != null ? state.message : ""}</div>
-                <div className="information-buttons">
+                <div className="overlay-essentials-headline" id="overlay-essentials-information-headline"><strong>{state?.headline != null ? state.headline : ""}</strong></div>
+                <div id="overlay-essentials-information-message">{state?.message != null ? state.message : ""}</div>
+                <div className="overlay-essentials-information-buttons">
                     <button type="button" autoFocus onClick={() => handleAction()}
                         onKeyDown={(e) => {
                                 if (e.key === 'Enter' || e.key === ' ') {
@@ -81,7 +81,7 @@ export function InfoOverlay({ state, setState }) {
                                     handleAction();
                                 }
                             }}
-                        className="px-4 py-2 bg-blue-600 text-white rounded"
+                        className="overlay-essentials-px-4 py-2 bg-blue-600 text-white rounded"
                         id = "infoButton">
                         {state?.proceedButtonText != null ? state.proceedButtonText : "OK"}
                     </button>

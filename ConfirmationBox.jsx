@@ -70,8 +70,8 @@ export function ConfirmationBox({ state, setState }) {
     }
 
     return showConfirm ?
-        <div className="confirmation-overlay">
-            <div className="confirmation-box" style={state?.style != null ? state.style : {}}
+        <div className="overlay-essentials-confirmation-overlay">
+            <div className="overlay-essentials-confirmation-box" style={state?.style != null ? state.style : {}}
                 role="alertdialog"
                 aria-modal="true"
                 aria-labelledby={state?.headline != null ? "confirmation-headline" : undefined}
@@ -81,29 +81,29 @@ export function ConfirmationBox({ state, setState }) {
                     if (event.key === "Escape") handleAction(state.handlerCancel);
                 }}>
                 {state.addCloseButton?
-                    <span className="closeButton">
-                        <button type="button" className="close-icon" onClick={() => handleAction(undefined)} aria-label="Dialog schließen">
+                    <span className="overlay-essentials-closeButton">
+                        <button type="button" className="overlay-essentials-close-icon" onClick={() => handleAction(undefined)} aria-label="Dialog schließen">
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
                             </svg>
                         </button>
                     </span> : 
                 <></>}
-                {state?.headline != null ? <div className="headline" id="confirmation-headline" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.headline}</strong></div> : <></>}
-                <div id="confirmation-message" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message1 != null ? state.message1 : state?.message != null ? state.message : ""}</div>
-                <div style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.message2 != null ? state.message2 : ""}</strong></div>
-                <div className="confirmation-buttons">
+                {state?.headline != null ? <div className="overlay-essentials-headline" id="overlay-essentials-confirmation-headline"><strong>{state?.headline}</strong></div> : <></>}
+                <div id="overlay-essentials-confirmation-message">{state?.message1 != null ? state.message1 : state?.message != null ? state.message : ""}</div>
+                <div><strong>{state?.message2 != null ? state.message2 : ""}</strong></div>
+                <div className="overlay-essentials-confirmation-buttons">
                     <button
                         onClick={() => handleAction(state.handlerCancel)}
                         type="button"
-                        className="px-4 py-2 bg-gray-300 rounded"
+                        className="overlay-essentials-px-4 py-2 bg-gray-300 rounded"
                         style={state?.cancelButtonStyle != null ? state.cancelButtonStyle : {}}>
                         {state.cancelButtonText ? state.cancelButtonText : "Abbrechen"}
                     </button>
                     <button onClick={() => handleAction(state.handlerOk)}
                         ref={confirmButtonRef}
                         type="button"
-                        className="px-4 py-2 bg-blue-600 text-white rounded"
+                        className="overlay-essentials-px-4 py-2 bg-blue-600 text-white rounded"
                         style={state?.proceedButtonStyle != null ? state.proceedButtonStyle : {}}>
                         {state.proceedButtonText ? state.proceedButtonText : "OK"}
                     </button>

@@ -1,4 +1,4 @@
-.information-overlay-with-input {
+.overlay-essentials-information-overlay-with-input {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,9 +9,11 @@
     align-items: center;
     justify-content: center;
     z-index: 10000;
+    white-space: pre-line;
+    word-break: break-word;
 }
 
-.information-box-with-input {
+.overlay-essentials-information-box-with-input {
     background-color: var(--Hellgrau, white);
     color: var(--HellSchwarz,#2c2c2c);
     padding: 2rem;
@@ -37,19 +39,19 @@
     }
 }
 
-.information-box-with-input .information-buttons {
+.overlay-essentials-information-box-with-input .overlay-essentials-information-buttons {
     display: flex;
     justify-content: center;
     gap: 1rem;
     margin-top: 1.5rem;
 }
 
-    .information-box-with-input .information-buttons button {
+    .overlay-essentials-information-box-with-input .overlay-essentials-information-buttons button {
         font-size: 85%;
         padding: 0.5rem 1.1rem;
     }
 
-.information-box-with-input input[type="text"] {
+.overlay-essentials-information-box-with-input input[type="text"] {
     margin-top: 15px;
     padding: 0.75rem 1rem;
     font-size: 1em;
@@ -58,31 +60,56 @@
     box-shadow: inset 0 0 0 1px #ccc;
 }
 
-.information-box-with-input .headline {
+.overlay-essentials-information-box-with-input .overlay-essentials-headline {
     margin-bottom: 0.75em;
 }
 
 /* ==== Dark Mode Support ==== */
-@media (prefers-color-scheme: dark) {
-    .information-box-with-input {
+[visual-theme="dark"] {
+    .overlay-essentials-information-box-with-input {
         background-color: var(--HellSchwarz,#2c2c2c);
         color: #fff;
     }
 
-    .information-box-with-input input[type="text"] {
+    .overlay-essentials-information-box-with-input input[type="text"] {
         background-color: var(--HellSchwarz, #2c2c2c);
         color: var(--FastWeiß, white);
         box-shadow: inset 0 0 0 1px #444;
     }
 }
 
-.information-box-with-input .closeButton {
+.overlay-essentials-information-box-with-input .overlay-essentials-closeButton {
     right: 10px;
     top: 10px;
     position: absolute;
 }
 
-    .information-box-with-input .close-icon:hover {
+    .overlay-essentials-information-box-with-input .overlay-essentials-close-icon:hover {
         color: var(--HSDAkzent);
         cursor: pointer;
     }
+
+.overlay-essentials-information-box-with-input .overlay-essentials-closeButton {
+    right: 10px;
+    top: 10px;
+    position: absolute;
+}
+
+    .overlay-essentials-information-box-with-input .overlay-essentials-close-icon:hover {
+        color: var(--HSDAkzent);
+        cursor: pointer;
+    }
+
+/* ==== Dark Mode Support ==== */
+[visual-theme="dark"] {
+    .overlay-essentials-information-box-with-input {
+        background-color: var(--HellSchwarz,#2c2c2c);
+        color: #fff;
+    }
+
+    .overlay-essentials-information-box-with-input input[type="text"] {
+        background-color: var(--HellSchwarz, #2c2c2c);
+        color: var(--FastWeiß, white);
+        box-shadow: inset 0 0 0 1px #444;
+    }
+}

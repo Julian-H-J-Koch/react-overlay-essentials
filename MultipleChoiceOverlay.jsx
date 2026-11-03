@@ -79,17 +79,17 @@ export function MultipleChoiceOverlay({ state, setState }) {
     }
 
     return showOverlay ?
-        <div className="multiplechoice-overlay">
-            <div className="multiplechoice-box" style={state?.style != null ? state.style : {}} role="dialog" aria-modal="true"
+        <div className="overlay-essentials-multiplechoice-overlay">
+            <div className="overlay-essentials-multiplechoice-box" style={state?.style != null ? state.style : {}} role="dialog" aria-modal="true"
                 aria-labelledby={state?.headline != null ? "multiple-choice-headline" : undefined}
                 aria-label={state?.headline != null ? undefined : "Mehrfachauswahl"}
                 aria-describedby="multiple-choice-message"
                 onKeyDown={(event) => { if (event.key === "Escape") handleAction(state.handlerCancel, false); }}>
                 {state.addCloseButton?
-                    <span className="closeButton">
+                    <span className="overlay-essentials-closeButton">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             tabIndex={0}
-                            className="close-icon"
+                            className="overlay-essentials-close-icon"
                             onClick={() => handleAction(undefined)}
                             onKeyDown={(e) => {
                                 if (e.key === 'Enter' || e.key === ' ') {
@@ -104,12 +104,12 @@ export function MultipleChoiceOverlay({ state, setState }) {
                         </svg>
                     </span> : 
                 <></>}
-                <div className="headline" id="multiple-choice-headline" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}><strong>{state?.headline != null ? state.headline : ""}</strong></div>
-                <div id="multiple-choice-message" style={{ whiteSpace: "pre-line", wordBreak: "break-word" }}>{state?.message != null ? state.message : ""}</div>
-                <div className="choices-input" role="group" aria-label="Auswahloptionen">
-                    <div className="choices-container">
+                <div className="overlay-essentials-headline" id="overlay-essentials-multiple-choice-headline"><strong>{state?.headline != null ? state.headline : ""}</strong></div>
+                <div id="overlay-essentials-multiple-choice-message">{state?.message != null ? state.message : ""}</div>
+                <div className="overlay-essentials-choices-input" role="group" aria-label="Auswahloptionen">
+                    <div className="overlay-essentials-choices-container">
                         {state?.choices.map((choice, index) => (
-                            <label className="choice-label" key={index}>
+                            <label className="overlay-essentials-choice-label" key={index}>
                                 <input
                                     type="checkbox"
                                     checked={input.includes(choice)}
@@ -128,7 +128,7 @@ export function MultipleChoiceOverlay({ state, setState }) {
                         ))}
                     </div>
                 </div>
-                <div className="information-buttons">
+                <div className="overlay-essentials-information-buttons">
                     <button onClick={() => handleAction(state.handlerCancel, false)}
                         onKeyDown={(event) => {
                             if (event.key === "Enter" || event.key === ' ') {
@@ -136,7 +136,7 @@ export function MultipleChoiceOverlay({ state, setState }) {
                                 handleAction(state.handlerCancel, false);
                             }
                         }}
-                        className="px-4 py-2 bg-gray-300 rounded"
+                        className="overlay-essentials-px-4 py-2 bg-gray-300 rounded"
                         style={state?.cancelButtonStyle != null ? state.cancelButtonStyle : {}}>
                         {state?.cancelButtonText != null ? state.cancelButtonText : "Abbrechen"}
                     </button>
@@ -149,7 +149,7 @@ export function MultipleChoiceOverlay({ state, setState }) {
                                 handleAction(state.handlerOk, true);
                             }
                         }}
-                        className="px-4 py-2 bg-blue-600 text-white rounded"
+                        className="overlay-essentials-px-4 py-2 bg-blue-600 text-white rounded"
                         style={state?.proceedButtonStyle != null ? state.proceedButtonStyle : {}}>
                         {state?.proceedButtonText != null ? state.proceedButtonText : "OK"}
                     </button>

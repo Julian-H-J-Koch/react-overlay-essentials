@@ -1,4 +1,4 @@
-.custom-select {
+.overlay-essentials-custom-select {
     border-radius: 8px;
     border: 1px solid var(--Mittelgrau);
     color: black;
@@ -18,7 +18,7 @@
     width: 100%;
 }
 
-    .custom-select:hover, .dropdown__menu-list div:hover, .card .dropdown__menu-list div:hover {
+    .overlay-essentials-custom-select:hover, .dropdown__menu-list div:hover, .card .dropdown__menu-list div:hover {
         cursor: pointer;
     }
 
@@ -26,6 +26,6 @@
         color:  var(--FastSchwarz, black);
     }
 
-.custom-select .dropdown__single-value {
+.overlay-essentials-custom-select .dropdown__single-value {
     color: var(--FastSchwarz, black);
 }

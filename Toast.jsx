@@ -24,7 +24,7 @@ export function Toast({ state, setState }) {
 
     return <>
         {showToast && (
-            <div className="toast-notification" role="status" aria-live="polite" aria-atomic="true">
+            <div className="overlay-essentials-toast-notification" role="status" aria-live="polite" aria-atomic="true">
                 {toastContent}
             </div>)}
     </>

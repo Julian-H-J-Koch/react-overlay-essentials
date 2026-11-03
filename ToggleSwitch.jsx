@@ -29,10 +29,10 @@ export function ToggleSwitch({ optionLeft, optionRight, value, onChange }) {
     }, [value, optionLeft, optionRight]);
 
     return (
-        <div className="toggleWrapper" ref={containerRef} role="group" aria-label="Auswahl">
+        <div className="overlay-essentials-toggleWrapper" ref={containerRef} role="group" aria-label="Auswahl">
             <button
                 type="button"
-                className={`toggleOption ${value === optionLeft.value ? "active" : ""}`}
+                className={`overlay-essentials-toggleOption ${value === optionLeft.value ? "overlay-essentials-active" : ""}`}
                 ref={el => optionLeftRef.current = el}
                 onClick={() => onChange(optionLeft.value)}
                 aria-pressed={value === optionLeft.value}
@@ -41,7 +41,7 @@ export function ToggleSwitch({ optionLeft, optionRight, value, onChange }) {
             </button>
             <button
                 type="button"
-                className={`toggleOption ${value === optionRight.value ? "active" : ""}`}
+                className={`overlay-essentials-toggleOption ${value === optionRight.value ? "overlay-essentials-active" : ""}`}
                 ref={el => optionRightRef.current = el}
                 onClick={() => onChange(optionRight.value)}
                 aria-pressed={value === optionRight.value}
@@ -49,7 +49,7 @@ export function ToggleSwitch({ optionLeft, optionRight, value, onChange }) {
                 {optionRight.label}
             </button>
 
-            <div className={`toggleSlider ${value === optionLeft.value ? "left" : "right"}`} style={sliderStyle} aria-hidden="true"/>
+            <div className={`toggleSlider ${value === optionLeft.value ? "overlay-essentials-left" : "overlay-essentials-right"}`} style={sliderStyle} aria-hidden="true"/>
         </div>
     );
 }

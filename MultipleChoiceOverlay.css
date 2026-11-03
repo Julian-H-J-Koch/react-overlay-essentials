@@ -1,4 +1,4 @@
-.multiplechoice-overlay {
+.overlay-essentials-multiplechoice-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,9 +9,11 @@
     align-items: center;
     justify-content: center;
     z-index: 10000;
+    white-space: pre-line;
+    word-break: break-word;
 }
 
-.multiplechoice-box {
+.overlay-essentials-multiplechoice-box {
     background-color: var(--Hellgrau, white);
     color: var(--HellSchwarz,#2c2c2c);
     padding: 2rem;
@@ -37,30 +39,30 @@
     }
 }
 
-.multiplechoice-box .headline {
+.overlay-essentials-multiplechoice-box .overlay-essentials-headline {
     margin-bottom: 0.75em;
 }
 
-.multiplechoice-box .information-buttons {
+.overlay-essentials-multiplechoice-box .overlay-essentials-information-buttons {
     display: flex;
     justify-content: center;
     gap: 1rem;
     margin-top: 1.5rem;
 }
 
-    .multiplechoice-box .information-buttons button {
+    .overlay-essentials-multiplechoice-box .overlay-essentials-information-buttons button {
         font-size: 85%;
         padding: 0.5rem 1.1rem;
     }
 
 /* === Stylisierte Checkbox === */
-.multiplechoice-box .choices-input {
+.overlay-essentials-multiplechoice-box .overlay-essentials-choices-input {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.multiplechoice-box .choices-input input[type="checkbox"] {
+.overlay-essentials-multiplechoice-box .overlay-essentials-choices-input input[type="checkbox"] {
     appearance: none;
     width: 20px;
     height: 20px;
@@ -74,47 +76,47 @@
     margin-right: 0.5rem;
 }
 
-.multiplechoice-box .choices-input input[type="checkbox"]:checked {
-    background-color: var(--DunkelAkzent, #4aabf5) ;
-    border-color: var(--DunkelAkzent, #4aabf5) ;
-}
-
-.multiplechoice-box .choices-input input[type="checkbox"]:hover {
-    background-color: var(--Hellgrau, #ddd); 
-    border-color: var(--Dunkelgrau, #999);
-}
-
-    .multiplechoice-box .choices-input input[type="checkbox"]:checked:hover {
-        background-color: var(--HSDAkzent, #4aabf5) ;
-        border-color: var(--HSDAkzent, #4aabf5) ;
+    .overlay-essentials-multiplechoice-box .overlay-essentials-choices-input input[type="checkbox"]:checked {
+        background-color: var(--DunkelAkzent, #4aabf5) ;
+        border-color: var(--DunkelAkzent, #4aabf5) ;
     }
 
-.multiplechoice-box .choices-input input[type="checkbox"]:disabled {
-    background-color: var(--Mittelgrau, #ddd); 
-    border-color: var(--Dunkelgrau, #999);
-    cursor: auto;
-}
+        .overlay-essentials-multiplechoice-box .overlay-essentials-choices-input input[type="checkbox"]:hover {
+            background-color: var(--Hellgrau, #ddd); 
+            border-color: var(--Dunkelgrau, #999);
+        }
+
+        .overlay-essentials-multiplechoice-box .overlay-essentials-choices-input input[type="checkbox"]:checked:hover {
+            background-color: var(--HSDAkzent, #4aabf5) ;
+            border-color: var(--HSDAkzent, #4aabf5) ;
+        }
+
+        .overlay-essentials-multiplechoice-box .overlay-essentials-choices-input input[type="checkbox"]:disabled {
+            background-color: var(--Mittelgrau, #ddd); 
+            border-color: var(--Dunkelgrau, #999);
+            cursor: auto;
+        }
 
 
-/* Häkchen aus zwei Linien */
-.multiplechoice-box .choices-input input[type="checkbox"]:checked::after {
-    content: "";
-    position: absolute;
-    left: 5px;
-    top: 2px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
+        /* Häkchen aus zwei Linien */
+        .overlay-essentials-multiplechoice-box .overlay-essentials-choices-input input[type="checkbox"]:checked::after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
 
-.multiplechoice-box .choices-input input[type="checkbox"]:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--MittelAkzent, rgba(74, 171, 245));
-}
+    .overlay-essentials-multiplechoice-box .overlay-essentials-choices-input input[type="checkbox"]:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px var(--MittelAkzent, rgba(74, 171, 245));
+    }
 
-.multiplechoice-box .choice-label {
+.overlay-essentials-multiplechoice-box .overlay-essentials-choice-label {
     justify-content: flex-start;
     display: flex;
     align-items: center;
@@ -122,7 +124,7 @@
     vertical-align: middle;
 }
 
-.multiplechoice-box .choices-container{
+.overlay-essentials-multiplechoice-box .overlay-essentials-choices-container{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -131,52 +133,52 @@
     padding: 1rem;
 }
 
-/* ==== Dark Mode Support ==== */
-@media (prefers-color-scheme: dark) {
+/* Dark Mode */
+[visual-theme="dark"] {
     
-    .multiplechoice-box {
+    .overlay-essentials-multiplechoice-box {
         background-color: var(--HellSchwarz,#2c2c2c);
         color: var(--FastWeiß, white);
     }
 
-    .multiplechoice-box .choices-input input[type="checkbox"] {
+    .overlay-essentials-multiplechoice-box .overlay-essentials-choices-input input[type="checkbox"] {
         background-color: var(--Dunkelgrau, #888);
         background-color: var(--FastSchwarz,#222);
     }
 
-    .multiplechoice-box .choices-input input[type="checkbox"]:checked {
-        background-color: var(--DunkelAkzent, #4aabf5);
-        border-color: var(--DunkelAkzent, #4aabf5);
-    }
+        .overlay-essentials-multiplechoice-box .overlay-essentials-choices-input input[type="checkbox"]:checked {
+            background-color: var(--DunkelAkzent, #4aabf5);
+            border-color: var(--DunkelAkzent, #4aabf5);
+        }
 
-    .multiplechoice-box .choices-input input[type="checkbox"]:hover {
-        background-color: var(--Dunkelgrau, #ddd); 
-        border-color: var(--Hellgrau, #999);
-    }
+        .overlay-essentials-multiplechoice-box .overlay-essentials-choices-input input[type="checkbox"]:hover {
+            background-color: var(--Dunkelgrau, #ddd); 
+            border-color: var(--Hellgrau, #999);
+        }
 
-        .multiplechoice-box .choices-input input[type="checkbox"]:checked:hover {
+        .overlay-essentials-multiplechoice-box .overlay-essentials-choices-input input[type="checkbox"]:checked:hover {
             background-color: var(--HSDAkzent, #4aabf5) ;
             border-color: var(--HSDAkzent, #4aabf5) ;
         }
 
-    .multiplechoice-box .choices-input input[type="checkbox"]:checked::after {
-        border-color: white;
-    }
+            .overlay-essentials-multiplechoice-box .overlay-essentials-choices-input input[type="checkbox"]:checked::after {
+                border-color: white;
+            }
 
-    .multiplechoice-box .choices-input input[type="checkbox"]:disabled {
+    .overlay-essentials-multiplechoice-box .overlay-essentials-choices-input input[type="checkbox"]:disabled {
         background-color: var(--Dunkelgrau, #999); 
         border-color: var(--Mittelgrau, #ddd);
         cursor: auto;
     }
 }
 
-.multiplechoice-box .closeButton {
+.overlay-essentials-multiplechoice-box .overlay-essentials-closeButton {
     right: 10px;
     top: 10px;
     position: absolute;
 }
 
-    .multiplechoice-box .close-icon:hover {
+    .overlay-essentials-multiplechoice-box .overlay-essentials-close-icon:hover {
         color: var(--HSDAkzent);
         cursor: pointer;
     }
