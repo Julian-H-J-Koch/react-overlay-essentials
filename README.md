@@ -28,31 +28,33 @@ Eine kleine Ansammlung an praktischen Tools, die out of the Box genutzt werden k
 - [InputFilter]: Ein Tool was genutzt werden kann um auf einem Inputfeld einen Regex-Filter anzuwenden und dem User so nur Eingaben erlaubt die dem Filter entsprechen.
 
 ## Examples:
-import { useState } from "react";
-import { ConfirmationBox } from 'react-overlay-essentials';
-...
-
-function App(...) {
+{
+    import { useState } from "react";
+    import { ConfirmationBox } from 'react-overlay-essentials';
     ...
-    const [stateConfirmationBox, setStateConfirmationBox] = useState(null);
-    ...
-    function handleLicenseAgreement() {
 
+    function App(...) {
+        ...
+        const [stateConfirmationBox, setStateConfirmationBox] = useState(null);
+        ...
+        function handleLicenseAgreement() {
+
+        }
+        ...
+        return <div id="root">
+            <ConfirmationBox state={stateConfirmationBox} setState={setStateConfirmationBox} />
+            ...
+            <button onClick={() => {
+                setStateConfirmationBox({
+                    headline: "Are you sure?",
+                    message: "Do you want to accept the License agreement?",
+                    proceedButtonText: "Agree",
+                    cancelButtonText: "Decline",
+                    handlerOk: handleLicenseAgreement
+                })
+            }}>
+                Confirm License
+            </button>
+        </div>;
     }
-    ...
-    return <div id="root">
-         <ConfirmationBox state={stateConfirmationBox} setState={setStateConfirmationBox} />
-         ...
-         <button onClick={() => {
-            setStateConfirmationBox({
-                headline: "Are you sure?",
-                message: "Do you want to accept the License agreement?",
-                proceedButtonText: "Agree",
-                cancelButtonText: "Decline",
-                handlerOk: handleLicenseAgreement
-            })
-         }}>
-            Confirm License
-         </button>
-    </div>;
 }

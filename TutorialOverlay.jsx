@@ -119,17 +119,19 @@ export function TutorialOverlay({ state, setState }) {
         // 25 rem
         const _1rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
         const tooltipWidth = 32 * _1rem;
+        const tooltipHeight = tooltipWidth;
 
         const position = rect.right + tooltipWidth <= window.innerWidth ? Positions.RIGHT
                         : (rect.left - tooltipWidth >= 0 ? Positions.LEFT
-                        : Positions.BOTTOM);
+                        : (rect.top - tooltipHeight >= 0 ? Positions.TOP
+                        : Positions.BOTTOM));
 
         setTutorialPos({
             position,
             px_left: position === Positions.LEFT ? rect.left - tooltipWidth
                 : (position === Positions.RIGHT ? rect.right + _1rem 
                 : null),
-            px_top: position !== Positions.BOTTOM ? rect.top : (rect.bottom + _1rem)
+            px_top: position === Positions.TOP ? (rect.top - tooltipHeight) : (position !== Positions.BOTTOM ? rect.top : (rect.bottom + _1rem))
         });
 
         if(!dontHighlightElement) {
@@ -165,7 +167,7 @@ export function TutorialOverlay({ state, setState }) {
                     ...(tutorialPos
                             ? {
                                 position: "fixed",
-                                left: tutorialPos.px_left ?? ';',
+                                left: tutorialPos.px_left ?? '',
                                 top: tutorialPos.px_top,
                                 transform: 'none'
                             }
@@ -205,9 +207,7 @@ export function TutorialOverlay({ state, setState }) {
                                         setHighlightElementRect(null);
                                     }
                                     setTutorialStep(prev => prev - 1);
-                                    setTimeout(() => {
-                                        document.getElementById("overlay-essentials-tutorial-box").scrollIntoView();
-                                    }, 10);
+                                    document.getElementById("overlay-essentials-tutorial-box").scrollIntoView();
                                 }, nextCommand != null ? (state?.steps[tutorialStep - 1].waitFor ?? TIMEOUT_OVERLAY_WAIT_FOR_COMMAND_EXECUTION_MS) : 0);
                             }
                             else {
@@ -236,9 +236,7 @@ export function TutorialOverlay({ state, setState }) {
                                         setHighlightElementRect(null);
                                     }
                                     setTutorialStep(prev => prev + 1);
-                                    setTimeout(() => {
-                                        document.getElementById("overlay-essentials-tutorial-box").scrollIntoView();
-                                    }, 10);
+                                    document.getElementById("overlay-essentials-tutorial-box").scrollIntoView();
                                 }, nextCommand != null ? state?.steps[tutorialStep + 1].waitFor ?? TIMEOUT_OVERLAY_WAIT_FOR_COMMAND_EXECUTION_MS : 0);
                             }
                             else {
