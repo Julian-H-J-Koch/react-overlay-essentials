@@ -66,6 +66,9 @@ export function TutorialOverlay({ state, setState }) {
     // Wird verwendet um zu tracken bei welchem Schritt des Tutorials der Nutzer ist
     const [tutorialStep, setTutorialStep] = useState(0);
 
+    // Wird verwendet um ggf. die TutorialBox wenn sie oben aus dem Bildschirm ragt nach unten zu verschieben
+    const tutorialBoxRef = useRef(null);
+
     const proceedButtonRef = useRef(null);
 
     // Sobald der State von außen aktualisiert wird triggert diese Funktion
@@ -102,6 +105,30 @@ export function TutorialOverlay({ state, setState }) {
         };
     }, [showTutorial]);
 
+    useEffect(() => {
+        if (!tutorialPos || !tutorialBoxRef.current || tutorialPos.position !== Positions.TOP)
+            return;
+
+        const tutorialBoxRect = tutorialBoxRef.current.getBoundingClientRect();
+        if(tutorialBoxRect.top < 0) {
+            const attachElement = (typeof state?.steps[tutorialStep]?.attachToObject === "string"
+                                            ? document.getElementById(state?.steps[tutorialStep]?.attachToObject)
+                                            : state?.steps[tutorialStep]?.attachToObject);
+
+            if(attachElement instanceof HTMLElement) {
+                var rect = attachElement.getBoundingClientRect();
+                // 25 rem
+                const _1rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+
+                setTutorialPos({
+                    position: Positions.BOTTOM,
+                    px_left: null,
+                    px_top: rect.bottom + _1rem
+                });
+            }
+        }
+    }, [tutorialPos, tutorialStep]);
+
 
     const showTutorialAtElement = (e, dontHighlightElement) => {
         var rect = e.getBoundingClientRect();
@@ -119,19 +146,17 @@ export function TutorialOverlay({ state, setState }) {
         // 25 rem
         const _1rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
         const tooltipWidth = 32 * _1rem;
-        const tooltipHeight = tooltipWidth;
 
         const position = rect.right + tooltipWidth <= window.innerWidth ? Positions.RIGHT
                         : (rect.left - tooltipWidth >= 0 ? Positions.LEFT
-                        : (rect.top - tooltipHeight >= 0 ? Positions.TOP
-                        : Positions.BOTTOM));
+                        : Positions.TOP); // Immer Top nehmen und nur wenn tatsächlich rausragt => Nach rendern auf Bottom ändern
 
         setTutorialPos({
             position,
             px_left: position === Positions.LEFT ? rect.left - tooltipWidth
                 : (position === Positions.RIGHT ? rect.right + _1rem 
                 : null),
-            px_top: position === Positions.TOP ? (rect.top - tooltipHeight) : (position !== Positions.BOTTOM ? rect.top : (rect.bottom + _1rem))
+            px_top: position === Positions.TOP ? (rect.top - _1rem) : rect.top
         });
 
         if(!dontHighlightElement) {
@@ -169,12 +194,13 @@ export function TutorialOverlay({ state, setState }) {
                                 position: "fixed",
                                 left: tutorialPos.px_left ?? '',
                                 top: tutorialPos.px_top,
-                                transform: 'none'
+                                transform: tutorialPos.position === Positions.TOP ? "translateY(-100%)" : 'none'
                             }
                             : {}
                         ),
                     ...(state?.style != null ? state.style : {})
                     }}
+                ref={tutorialBoxRef}
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby={state?.steps[tutorialStep]?.headline != null ? "tutorial-headline" : undefined}
