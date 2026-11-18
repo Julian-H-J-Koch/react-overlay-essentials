@@ -84,19 +84,17 @@
     position: absolute;
 }
 
-    .overlay-essentials-information-box-with-input .overlay-essentials-close-icon:hover {
-        color: var(--HSDAkzent);
-        cursor: pointer;
+    .overlay-essentials-information-box-with-input .overlay-essentials-close-icon {
+        color: color-mix(in srgb, currentColor 40%, transparent);
+        background: transparent;
+        right: 10px;
+        top: 10px;
+        position: absolute;
+        padding: 0;
     }
 
-.overlay-essentials-information-box-with-input .overlay-essentials-closeButton {
-    right: 10px;
-    top: 10px;
-    position: absolute;
-}
-
     .overlay-essentials-information-box-with-input .overlay-essentials-close-icon:hover {
-        color: var(--HSDAkzent);
+        color: currentColor;
         cursor: pointer;
     }
 
