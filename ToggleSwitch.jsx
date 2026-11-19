@@ -49,7 +49,7 @@ export function ToggleSwitch({ optionLeft, optionRight, value, onChange }) {
                 {optionRight.label}
             </button>
 
-            <div className={`toggleSlider ${value === optionLeft.value ? "overlay-essentials-left" : "overlay-essentials-right"}`} style={sliderStyle} aria-hidden="true"/>
+            <div className={`overlay-essentials-toggleSlider ${value === optionLeft.value ? "overlay-essentials-left" : "overlay-essentials-right"}`} style={sliderStyle} aria-hidden="true"/>
         </div>
     );
 }
